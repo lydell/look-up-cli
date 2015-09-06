@@ -1,16 +1,19 @@
 {
-  "name": "find-up-cli",
+  "name": "look-up-cli",
   "version": "1.0.0",
-  "description": "Find a file by walking up parent directories",
+  "description": "Find a file matching a pattern by walking up parent directories",
   "license": "MIT",
-  "repository": "sindresorhus/find-up-cli",
+  "repository": "lydell/look-up-cli",
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
+  "contributors": [
+    "Simon Lydell"
+  ],
   "bin": {
-    "find-up": "cli.js"
+    "look-up": "cli.js"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -42,10 +45,14 @@
     "dir",
     "walk",
     "walking",
-    "path"
+    "path",
+    "pattern",
+    "glob",
+    "minimatch",
+    "micromatch"
   ],
   "dependencies": {
-    "find-up": "^1.0.0",
+    "look-up": "^0.7.1",
     "meow": "^3.3.0"
   },
   "devDependencies": {

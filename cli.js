@@ -1,21 +1,23 @@
 #!/usr/bin/env node
 'use strict';
 var meow = require('meow');
-var findUp = require('find-up');
+var lookup = require('look-up');
 
 var cli = meow({
 	help: [
 		'Usage',
-		'  $ find-up <filename>',
+		'  $ look-up \'<pattern>\'',
 		'',
 		'Options',
 		'  --cwd=<dir>  Working directory',
 		'',
 		'Examples',
 		'  $ echo $PWD',
-		'  /Users/sindresorhus/foo/bar',
-		'  $ find-up unicorn.png',
-		'  /Users/sindresorhus/unicorn.png'
+		'  /Users/lydell/foo/bar',
+		'  $ look-up \'unicorn.{png,jpg}\'',
+		'  /Users/lydell/unicorn.png',
+		'',
+		'Don\'t forget to quote your pattern so it isn\'t expanded by your shell.'
 	]
 });
 
@@ -24,7 +26,7 @@ if (cli.input.length === 0) {
 	process.exit(1);
 }
 
-var filepath = findUp.sync(cli.input[0], cli.flags);
+var filepath = lookup(cli.input[0], cli.flags);
 
 if (filepath) {
 	console.log(filepath);

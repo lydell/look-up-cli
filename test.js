@@ -5,7 +5,7 @@ var childProcess = require('child_process');
 test(function (t) {
 	t.plan(2);
 
-	childProcess.execFile('./cli.js', ['test.js', '--cwd=fixture'], {
+	childProcess.execFile('./cli.js', ['test.{js,foo}', '--cwd=fixture'], {
 		cwd: __dirname
 	}, function (err, stdout) {
 		t.error(err);
